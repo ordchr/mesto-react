@@ -18,7 +18,7 @@
 
 ### Обзор
 
-Текущая версия проекта доступна по адресу: [https://ordchr.github.io/mesto/dist/](https://ordchr.github.io/mesto/dist/)
+Текущая версия проекта доступна по адресу: [https://ordchr.github.io/mesto-react/](https://ordchr.github.io/mesto-react/)
 
 * Figma
 * Картинки
