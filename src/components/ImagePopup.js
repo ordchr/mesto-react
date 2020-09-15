@@ -4,7 +4,6 @@ function ImagePopup({
   card,
   onClose
 }) {
-  console.log(card);
   return (
       <div className={`popup-preview ${card ? 'popup_opened' : 'popup_closed' }`}>
         <div className="popup-container popup-preview__container">
