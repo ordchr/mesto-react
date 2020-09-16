@@ -94,7 +94,7 @@ function App() {
             <h4 className="popup__header popup__header_confirm">Вы уверены?</h4>
             <button className="popup__button-yes" type="submit">Да</button>
           </form>
-          <button type="button" className="popup__button-close"></button>
+          <button type="button" className="popup__button-close" />
         </div>
       </div>
 

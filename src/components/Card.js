@@ -10,12 +10,12 @@ function Card({card, onCardClick}) {
   return (
     <div className="place">
       <img src={link} className="place__image" alt="" onClick={handleCardClick} />
-      <button type="button" className="place__image-del" style={{ backgroundImage: `url(${delIcon})` }}></button>
+      <button type="button" className="place__image-del" style={{ backgroundImage: `url(${delIcon})` }} />
       <div className="place__title">
         <h3 className="place__title-text">{name}</h3>
         <div className="place__title-like-block">
-          <button type="button" className="place__title-like"></button>
-          <h5 className="place__title-like-count">{likes.length}</h5>
+          <button type="button" className="place__title-like" />
+            <h5 className="place__title-like-count">{likes.length}</h5>
         </div>
       </div>
     </div>

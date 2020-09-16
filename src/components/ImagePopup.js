@@ -9,7 +9,7 @@ function ImagePopup({
       <div className={`popup-preview ${isOpen ? 'popup_opened' : 'popup_closed' }`}>
         <div className="popup-container popup-preview__container">
           <img src={card.link} className="popup-preview__image" alt="" />
-          <button type="button" className="popup__button-close" onClick={onClose}></button>
+          <button type="button" className="popup__button-close" onClick={onClose} />
           <p className="popup-preview__description">{card.name}</p>
         </div>
       </div>

@@ -15,7 +15,7 @@ function PopupWithForm({
             {children}
             <button className="popup__button-save" type="submit">Сохранить</button>
           </form>
-          <button type="button" className="popup__button-close" onClick={onClose}></button>
+          <button type="button" className="popup__button-close" onClick={onClose} />
         </div>
       </div>
   );
