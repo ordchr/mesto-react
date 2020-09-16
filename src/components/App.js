@@ -13,7 +13,6 @@ function App() {
   const [isEditAvatarPopupOpen, setisEditAvatarPopupOpen] = React.useState(false);
 
   const [selectedCard, setSelectedCard] = React.useState({});
-  const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false);
 
   function handleEditAvatarClick() {
     setisEditAvatarPopupOpen(true);
@@ -31,12 +30,11 @@ function App() {
     setisEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setisAddPlacePopupOpen(false);
-    setIsImagePopupOpen(false);
+    setSelectedCard({});
   };
 
   function handleCardClick(card) {
     setSelectedCard(card);
-    setIsImagePopupOpen(true);
   }
 
 
@@ -85,7 +83,7 @@ function App() {
         <span id="popup-input-avatar-image-link-error" className="popup__input-error"></span>
       </PopupWithForm>
 
-      <ImagePopup card={selectedCard} onClose={closeAllPopups} isOpen={isImagePopupOpen}/>
+      <ImagePopup card={selectedCard} onClose={closeAllPopups} />
 
 
       <div className="popup popup_closed popup_confirm">
