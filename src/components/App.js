@@ -16,22 +16,22 @@ function App() {
 
   function handleEditAvatarClick() {
     setisEditAvatarPopupOpen(true);
-  };
+  }
 
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
-  };
+  }
 
   function handleAddPlaceClick() {
     setisAddPlacePopupOpen(true);
-  };
+  }
 
   function closeAllPopups() {
     setisEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setisAddPlacePopupOpen(false);
     setSelectedCard({});
-  };
+  }
 
   function handleCardClick(card) {
     setSelectedCard(card);
@@ -54,12 +54,12 @@ function App() {
           name="name" type="text" placeholder="Имя пользователя"
           minLength="2" maxLength="40" required
         />
-        <span id="popup-input-full-name-error" className="popup__input-error"></span>
+        <span id="popup-input-full-name-error" className="popup__input-error" />
         <input id="popup-input-profession" className="popup__input popup__input_profession"
           name="profession" type="text" placeholder="Профессия"
           minLength="2" maxLength="200" required
         />
-        <span id="popup-input-profession-error" className="popup__input-error"></span>
+        <span id="popup-input-profession-error" className="popup__input-error" />
       </PopupWithForm>
 
       <PopupWithForm title="Новое место" name="add-card" isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
@@ -67,12 +67,12 @@ function App() {
           name="popup__input_place-name" type="text" placeholder="Название"
           minLength="1" maxLength="30" required
         />
-        <span id="popup-input-place-name-error" className="popup__input-error"></span>
+        <span id="popup-input-place-name-error" className="popup__input-error" />
         <input id="popup-input-place-image-link" className="popup__input popup__input_place-image-link"
           name="popup__input_place-image-link" type="url"
           placeholder="Ссылка на картинку" required
         />
-        <span id="popup-input-place-image-link-error" className="popup__input-error"></span>
+        <span id="popup-input-place-image-link-error" className="popup__input-error" />
       </PopupWithForm>
 
       <PopupWithForm title="Обновить аватар" name="update-avatar" isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>
@@ -80,7 +80,7 @@ function App() {
           name="popup__input_update-avatar-link" type="url"
             placeholder="Ссылка на аватар" required
         />
-        <span id="popup-input-avatar-image-link-error" className="popup__input-error"></span>
+        <span id="popup-input-avatar-image-link-error" className="popup__input-error" />
       </PopupWithForm>
 
       <ImagePopup card={selectedCard} onClose={closeAllPopups} />
