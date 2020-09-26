@@ -60,6 +60,14 @@ class Api {
     return this._call('PATCH', `users/me/avatar`, body);
   }
 
+  changeLikeStatus(cardId, newStatus) {
+    if (newStatus) {
+      return this.likeCard(cardId)
+    } else {
+      return this.dislikeCard(cardId)
+    }
+  }
+
 }
 
 const api = new Api({
