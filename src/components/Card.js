@@ -2,7 +2,7 @@ import React from 'react';
 import delIcon from '../images/del-icon.svg';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function Card({card, onCardClick, onCardLike}) {
+function Card({card, onCardClick, onCardLike, onCardDelete}) {
 
   const currentUser = React.useContext(CurrentUserContext);
 
@@ -12,6 +12,10 @@ function Card({card, onCardClick, onCardLike}) {
 
   function handleLikeClick() {
     onCardLike(card);
+  }
+
+  function handleCardDelete() {
+    onCardDelete(card);
   }
 
   const {name, link, likes} = card;
@@ -28,7 +32,7 @@ function Card({card, onCardClick, onCardLike}) {
   return (
     <div className="place">
       <img src={link} className="place__image" alt="" onClick={handleCardClick} />
-      <button type="button" className={cardDeleteButtonClassName} style={{ backgroundImage: `url(${delIcon})` }} />
+      <button type="button" className={cardDeleteButtonClassName} style={{ backgroundImage: `url(${delIcon})` }} onClick={handleCardDelete} />
       <div className="place__title">
         <h3 className="place__title-text">{name}</h3>
         <div className="place__title-like-block">

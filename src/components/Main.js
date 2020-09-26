@@ -34,6 +34,17 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick}) {
       })
   }
 
+  const onCardDelete = (card) => {
+    api.deleteCard(card._id)
+      .then(_ => {
+        const newCards = cards.filter(c => c._id !== card._id)
+        setCards(newCards);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
   return (
     <>
       <section className="profile page__section">
@@ -53,7 +64,13 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick}) {
       <section className="places page__section">
         {
           cards.map(
-            (card) => <Card card={card} onCardClick={onCardClick} onCardLike={onCardLike} key={card._id}/>
+            (card) => <Card 
+              card={card} 
+              onCardClick={onCardClick} 
+              onCardLike={onCardLike} 
+              onCardDelete={onCardDelete}
+              key={card._id}
+            />
           ) 
         }
       </section>
