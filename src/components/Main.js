@@ -3,47 +3,9 @@ import api from '../utils/Api';
 import Card from './Card';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick}) {
-  const [cards, setCards] = React.useState([]);
+function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike, onCardDelete, cards}) {
 
   const currentUser = React.useContext(CurrentUserContext);
-
-  React.useEffect(() => {
-    Promise.all([
-      api.getInitialCards(),
-    ])
-    .then(([initialCards]) => {
-      setCards(initialCards)
-    })
-    .catch((err) => {
-      // попадаем сюда если один из промисов завершится ошибкой
-      console.log(err);
-    })
-
-  }, []);
-
-  const onCardLike = (card) => {
-    const isLiked = card.likes.some( i => i._id === currentUser._id);
-    api.changeLikeStatus(card._id, !isLiked)
-      .then(newCard => {
-        const newCards = cards.map(c => c._id === card._id ? newCard : c)
-        setCards(newCards);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
-
-  const onCardDelete = (card) => {
-    api.deleteCard(card._id)
-      .then(_ => {
-        const newCards = cards.filter(c => c._id !== card._id)
-        setCards(newCards);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
 
   return (
     <>
