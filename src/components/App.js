@@ -6,6 +6,7 @@ import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 import api from '../utils/Api';
+import EditProfilePopup from './EditProfilePopup';
 
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
@@ -23,9 +24,10 @@ function App() {
     api.getUserInfo()
       .then(userInfo => {
         setCurrentUser(userInfo);
+        console.log('get user info');
       })
 
-  })
+  }, [])
 
   function handleEditAvatarClick() {
     setisEditAvatarPopupOpen(true);
@@ -50,6 +52,17 @@ function App() {
     setSelectedCard(card);
   }
 
+  function handleUpdateUser(userInfo) {
+    console.log(userInfo);
+    api.updateUserInfo(userInfo)
+      .then(user => {
+        setCurrentUser(user);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
 
   return (
     <div className="page">
@@ -63,18 +76,7 @@ function App() {
         />
         <Footer />
 
-        <PopupWithForm title="Редактировать профиль" name="profile" isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
-          <input id="popup-input-full-name" className="popup__input popup__input_full-name"
-            name="name" type="text" placeholder="Имя пользователя"
-            minLength="2" maxLength="40" required
-          />
-          <span id="popup-input-full-name-error" className="popup__input-error" />
-          <input id="popup-input-profession" className="popup__input popup__input_profession"
-            name="profession" type="text" placeholder="Профессия"
-            minLength="2" maxLength="200" required
-          />
-          <span id="popup-input-profession-error" className="popup__input-error" />
-        </PopupWithForm>
+        <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser}/> 
 
         <PopupWithForm title="Новое место" name="add-card" isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
           <input id="popup-input-place-name" className="popup__input popup__input_place-name"
