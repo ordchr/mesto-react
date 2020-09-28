@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import FormValidator from './FormValidator';
 
 function PopupWithForm({
   title,
@@ -8,6 +9,23 @@ function PopupWithForm({
   onSubmit,
   children
 }) {
+
+  useEffect(() => {
+
+    const validateOptions = {
+      formSelector: '.popup__form',
+      inputSelector: '.popup__input',
+      submitButtonSelector: '.popup__button-save',
+      inactiveButtonClass: 'popup__button-save_inactive',
+      inputErrorClass: 'popup__input_type_error',
+      errorClass: 'popup__input-error_active'
+    };
+
+    const popupForm = document.querySelector(`.popup_${name}`);
+    const formValidator = new FormValidator(validateOptions, popupForm);
+    formValidator.enableValidation();
+  }, []);
+
   return (
     <div className={`popup ${isOpen ? 'popup_opened' : 'popup_closed' }  popup_${name}`}>
         <div className="popup-container popup__container">
