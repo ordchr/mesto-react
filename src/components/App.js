@@ -99,6 +99,7 @@ function App() {
     api.updateUserInfo(userInfo)
       .then(userInfo => {
         setCurrentUser(userInfo);
+        closeAllPopups();
       })
       .catch(err => {
         console.log(err);
@@ -109,6 +110,7 @@ function App() {
     api.updateAvatar({avatar: avatarLink})
       .then(userInfo => {
         setCurrentUser(userInfo);
+        closeAllPopups();
       })
       .catch(err => {
         console.log(err);
@@ -120,6 +122,7 @@ function App() {
       .then(newCard => {
         console.log(newCard);
         setCards([...cards, newCard]);
+        closeAllPopups();
       })
       .catch(err => {
         console.log(err);

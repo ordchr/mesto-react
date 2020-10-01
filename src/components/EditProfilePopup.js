@@ -47,7 +47,6 @@ export class EditProfilePopup extends React.Component {
       name: this.state.name,
       about: this.state.description
     });
-    this.props.onClose();
   }
 
   render () {
